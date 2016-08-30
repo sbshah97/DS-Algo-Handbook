@@ -6,41 +6,6 @@ struct Node {
    struct Node *next;
 }*top = NULL;
 
-void push(int);
-void pop();
-void display();
-
-void main() {
-
-   int choice, value;
-   printf("\n:: Stack using Linked List ::\n");
-   
-   while(1) {
-      printf("\n****** MENU ******\n");
-      printf("1. Push\n2. Pop\n3. Display\n4. Exit\n");
-      printf("Enter your choice: ");
-      scanf("%d",&choice);
-      
-      switch(choice) {
-         case 1: 
-            printf("Enter the value to be insert: ");
-            scanf("%d", &value);
-            push(value);
-            break;
-         case 2: 
-            pop(); 
-            break;
-         case 3: 
-            display(); 
-            break;
-         case 4: 
-            exit(0);
-         default: 
-            printf("\nWrong selection!!! Please try again!!!\n");
-      }
-   }
-}
-
 void push(int value) {
    
    struct Node *newNode;
@@ -79,10 +44,41 @@ void display() {
       struct Node *temp = top;
       
       while(temp->next != NULL){
-	     printf("%d--->",temp->data);
-	     temp = temp -> next;
+        printf("%d--->",temp->data);
+        temp = temp -> next;
       }
 
       printf("%d--->NULL",temp->data);
    }
 }    
+
+void main() {
+
+   int choice, value;
+   printf("\n:: Stack using Linked List ::\n");
+   
+   while(1) {
+      printf("\n****** MENU ******\n");
+      printf("1. Push\n2. Pop\n3. Display\n4. Exit\n");
+      printf("Enter your choice: ");
+      scanf("%d",&choice);
+      
+      switch(choice) {
+         case 1: 
+            printf("Enter the value to be insert: ");
+            scanf("%d", &value);
+            push(value);
+            break;
+         case 2: 
+            pop(); 
+            break;
+         case 3: 
+            display(); 
+            break;
+         case 4: 
+            exit(0);
+         default: 
+            printf("\nWrong selection!!! Please try again!!!\n");
+      }
+   }
+}

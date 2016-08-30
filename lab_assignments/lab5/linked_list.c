@@ -1,81 +1,96 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node {
-    int data;
-    struct node *link;
+struct List {
+	int data;
+	struct List *next;
 };
 
-struct node *header, *ptr, *temp; 
+int listLength(struct List *head) {
+	struct List *current = head;
+	int count = 0;
 
-int insert_pos(int data,int position, node **head) {
-    assert(position >= 1);
-    node* new_node=(node*)malloc(sizeof(node));
-    new_node->data=data;
-    new_node->link=NULL;
-    if(position==1) {
-        new_node->link=*head;
-        *head=new_node;
-        return 0;
-    }
-
-    node *p = *head, *k;
-    int i;
-    for(i = 1 ; i < position && p!=NULL ; i++){
-        k = p;
-        p = p->link;
-    }
-
-    if(i >= position) {
-        k->link=new_node;
-        return 0;
-    }
-    return 1;
-}
- 
-int delete_pos(int position, node **head) {
-    assert(head && position>=1);
-    node *q;
-    if(position==1) {
-        q=*head;
-        *head=(*head)->link;
-        free(q);
-        return 0;
-    }
-    
-    node*p=*head,*k;int i;
-    
-    for(i = 1 ; i < position && p!=NULL ; i++) {
-        k = p;
-        p = p->link;
-    }
-    if(i >= position && k->link != NULL) {
-        q=k->link;
-        k->link=k->link->link;
-
-        free(q);
-        return 0;
-    }
-    return 1;
+	while(current != NULL) {
+		count ++;
+		current = current->next;
+	}
+	return count;
 }
 
-void display() {
+void insertLinkedList (struct List **head, int data, int position) {
+	int k = 1;
+	struct List *p, *q, *newNode;
+	newNode = (struct List*)malloc(sizeof(struct List));
+
+	newNode -> data = data;
+	p=*head;
+	if(position ==1) {
+		newNode->next = p;
+		*head = newNode;
+	}
+
+	else {
+		while((p != NULL) && (k<position)) {
+			k++;
+			q = p;
+			p = p-> next;
+		}
+		q -> next = newNode;
+		newNode -> next = p;
+	}
+}
+
+void deleteLinkedList (struct List **head, int position) {
+	int k = 1;
+	struct List *p, *q, *newNode;
+	
+	if(*head = NULL) {
+		printf("List empty\n");
+		return;
+	}
+
+	if(position == 1) {
+		*head = (*head) -> next;
+		free(p);
+		return;
+	}
+
+	else {
+		while((p != NULL) && (k < position)) {
+			k++;
+			q = p;
+			p = p-> next;
+		}
+		if(p == NULL)
+			printf("Position does not exist");
+		else {
+			q->next = p->next;
+			free(p);
+		}
+	}
+}
+
+void display(struct List **head) {
     printf("\nContents of the linked list are: \n");
-    ptr = header;
-    while(ptr->link != NULL) {
-        ptr = ptr->link;
-        printf("%d ", ptr->data);
+    struct List *p;
+	p=*head;
+	if(*head = NULL) {
+		printf("List empty\n");
+		return;
+	}
+    while(p != NULL) {
+        printf("%d\n", p->data);
+    	p = p->next;
     }
 }
 
-void main() {
-    int choice;
-    int cont = 1;
+int main() {
+	struct List* head = NULL;
 
-    header = (struct node *) malloc(sizeof(struct node));
-
-    header->data = NULL;
-    header->link = NULL;
-
-    display();
+	insertLinkedList(&head, 4, 1);
+	insertLinkedList(&head, 6, 1);
+	display(&head);
+	deleteLinkedList(&head, 1);
+	display(&head);
+	return 0;
 }
