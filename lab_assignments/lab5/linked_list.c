@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node{
+typedef struct node {
     int data;
-    struct node* link;
+    struct node *link;
 };
 
 struct node *header, *ptr, *temp; 
 
-int insert_pos(int data,int position, node**head) {
+int insert_pos(int data,int position, node **head) {
     assert(position >= 1);
     node* new_node=(node*)malloc(sizeof(node));
     new_node->data=data;
@@ -33,7 +33,7 @@ int insert_pos(int data,int position, node**head) {
     return 1;
 }
  
-int delete_pos(int position,node** head) {
+int delete_pos(int position, node **head) {
     assert(head && position>=1);
     node *q;
     if(position==1) {
@@ -77,25 +77,5 @@ void main() {
     header->data = NULL;
     header->link = NULL;
 
-    while(cont == 1) {
-        printf("\n1. Insert at any position\n");
-        printf("\n2. Delete at any position\n");
-        printf("\n3. Display linked list\n");
-        printf("\nEnter your choice: ");
-        scanf("%d", &choice);
-
-        switch(choice) {
-            case 1:
-                insert_pos();
-                break;
-            case 2:
-                delete_pos();
-                break;
-            case 3:
-                display();
-                break;
-            }
-        printf("\n\nDo you want to continue? (1 / 0): ");
-        scanf("%d", &cont);
-    }
+    display();
 }
