@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 int front,rear;
 int cq[10];
+
 void add(int item, int n) {
   if(front ==(rear+1)%n) {
     printf("\n\nCIRCULAR QUEUE IS OVERFLOW");
@@ -16,7 +18,6 @@ void add(int item, int n) {
     printf("\n\nRear = %d    Front = %d ",rear,front);
  }
 }
-
 
 void del(int n) {
   int a;

@@ -1,8 +1,10 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 int rear=-1;
 int front=-1;
 int queue_array[50];
+
 void insert(int n) {
 	int add_item;
 	
