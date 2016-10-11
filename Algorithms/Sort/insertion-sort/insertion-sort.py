@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Written by @daydreamer at Oct 12, 2016. Trying to do same behaviour as the C code
 # Except for the input part
 
