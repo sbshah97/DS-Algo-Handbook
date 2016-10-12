@@ -20,8 +20,7 @@ Primarily they are composed of two types of algorithms. Search Algorithms and So
 Primarily the data structures used are stacks, queues, arrays, linked list and binary trees.
 
 ##Contributing
-- The repository is open to contribution from all interested developers. Kindly send us Pull Requests with explanation as to what changes you have done.
-- Also, you can write to us by opening an [Issue](https://github.com/salman-bhai/DA_A_DS/issues) and also solve a current issue if possible.
+- Refer to https://github.com/aditya5558/DA_A_DS/blob/master/CONTRIBUTING.md
 - A detailed explanantion of how we came to building this software is maintained at the [Wiki](https://github.com/salman-bhai/DA_A_DS/wiki) page.
 - This repository was created by @[salman-bhai](https://github.com/salman-bhai) . 
 
