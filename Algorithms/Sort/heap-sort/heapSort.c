@@ -4,7 +4,14 @@ int b[100];
 int sz;
 
 
-void heapify(int ar[], int n, int i)
+/* 
+    This function check whether the element at ar[i] is the
+    largest among both of its child or not. If not, it will
+    swap the elements, so that the largest is on the root, 
+    and repeat the same for it's child.
+*/
+
+void heapify(int n, int i)
 {
     int largest = i;  // Initialize largest as root
     int l = 2*i + 1;  // left = 2*i + 1
@@ -19,43 +26,48 @@ void heapify(int ar[], int n, int i)
         temp=ar[i];
         ar[i]=ar[largest];
         ar[largest]=temp;
-        heapify(ar, n, largest);
+        heapify(n, largest);
     }
 }
 
-void heapSort(int ar[], int n)
+/*
+    This function will heapify the first half of the array ar[].
+    Then, it will swap the largest element with the last element
+    in the array ar[] and repeat heapify.
+*/
+
+void heapSort()
 {
     int temp;
-    for (int i = n / 2 - 1; i >= 0; i--)
-        heapify(ar, n, i);
-        for (int i=n-1; i>=0; i--)
+    for (int i = sz / 2 - 1; i >= 0; i--)
+        heapify(sz, i);
+    for (int i=sz-1; i>=0; i--)
     {
         temp=ar[0];
         ar[0]=ar[i];
         ar[i]=temp;
-        heapify(ar, i, 0);
+        heapify(i, 0);
     }
 }
 
 
 int main() {
- int i;
- printf("please enter th enumber of elements that you eill be entering into the array that you will provide to be msorted:\n");
- scanf("%d",&sz);
- printf("enter the elements into the array in an orderly fashion:\n");
- for ( i = 0; i < sz; i++)
- {
-   scanf("%d",&ar[i]);
- }
- printf("List before isorting\n");
+    int i;
+    printf("Please enter the number of elements that you will be entering into the array that you want to sort:\n");
+    scanf("%d", &sz);
+    printf("Enter the elements into the array:\n");
+    for ( i = 0; i < sz; i++)
+        scanf("%d", &ar[i]);
+    
+    
+    printf("List before sorting\n");
+    for(i = 0; i < sz; i++)
+       printf("%d ", ar[i]);
 
- for(i = 0; i < sz; i++)
-    printf("%d ", ar[i]);
+    heapSort();
 
- heapSort(ar,sz);
-
- printf("\nList after isorting\n");
-
- for(i = 0; i < sz; i++)
-    printf("%d ", ar[i]);
+    printf("\nList after sorting\n");
+    for(i = 0; i < sz; i++)
+       printf("%d ", ar[i]);
+    printf("\n");
 }
