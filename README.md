@@ -14,10 +14,10 @@ In case you are interested in using the contents of the repository, follow the f
 ## Categories
 
 - Algorithms
-Primarily they are composed of two types of algorithms. Search Algorithms and Sort Algorithms.
+Primarily they are composed of two types of algorithms. Search, Sort and Graph Algorithms.
 
 - Data Structures
-Primarily the data structures used are stacks, queues, arrays, linked list and binary trees.
+Primarily the data structures used are Stacks, Queues, Arrays, Linked list, AVL Trees and Binary trees.
 
 ##Contributing
 - Refer to the [Contributing Guide](https://github.com/salman-bhai/DA_A_DS/blob/master/CONTRIBUTING.md)
