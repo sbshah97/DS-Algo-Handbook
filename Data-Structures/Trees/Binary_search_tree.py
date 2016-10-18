@@ -1,123 +1,65 @@
 class Node:
+   
+#Tree node: left and right child + data which can be any object
+  
+def __init__(self, data):
+       
+self.left = None
+        self.right = None
+        self.data = data
 
-      def __init__(self,info): #constructor of class
+        class Node:
+   
+def insert(self, data):
+        
+        #Insert new node with data
 
-          self.info = info  #information for node
-          self.left = None  #left leef
-          self.right = None #right leef
-          self.level = None #level none defined
+       
+       
+if self.data:
+            if data < self.data:
+                if self.left is None:
+                    self.left = Node(data)
+                else:
+                    self.left.insert(data)
+            elif data > self.data:
+                if self.right is None:
+                    self.right = Node(data)
+                else:
+                    self.right.insert(data)
+        else:
+            self.data = data
 
-      def __str__(self):
+            def lookup(self, data, parent=None):
+        
+#Lookup node containing data
 
-          return str(self.info) #return as string
-
-
-class searchtree:
-
-      def __init__(self): #constructor of class
-
-          self.root = None
-
-
-      def create(self,val):  #create binary search tree nodes
-
-          if self.root == None:
-
-             self.root = Node(val)
-
-          else:
-
-             current = self.root
-
-             while 1:
-
-                 if val < current.info:
-
-                   if current.left:
-                      current = current.left
-                   else:
-                      current.left = Node(val)
-                      break;      
-
-                 elif val > current.info:
-                 
-                    if current.right:
-                       current = current.right
-                    else:
-                       current.right = Node(val)
-                       break;      
-
-                 else:
-                    break 
-
-      def bft(self): #Breadth-First Traversal
-
-          self.root.level = 0 
-          queue = [self.root]
-          out = []
-          current_level = self.root.level
-
-          while len(queue) > 0:
-                 
-             current_node = queue.pop(0)
- 
-             if current_node.level > current_level:
-                current_level += 1
-                out.append("\n")
-
-             out.append(str(current_node.info) + " ")
-
-             if current_node.left:
-
-                current_node.left.level = current_level + 1
-                queue.append(current_node.left)
-                  
-
-             if current_node.right:
-
-                current_node.right.level = current_level + 1
-                queue.append(current_node.right)
-                      
-                 
-          print "".join(out)   
+        
+        if data < self.data:
+            if self.left is None:
+                return None, None
+            return self.left.lookup(data, self)
+        elif data > self.data:
+            if self.right is None:
+                return None, None
+            return self.right.lookup(data, self)
+        else:
+            return self, parent
 
 
-      def inorder(self,node):
-            
-           if node is not None:
-              
-              self.inorder(node.left)
-              print node.info
-              self.inorder(node.right)
 
+  def delete(self, data): #delete
 
-      def preorder(self,node):
-            
-           if node is not None:
-              
-              print node.info
-              self.preorder(node.left)
-              self.preorder(node.right)
+        node, parent = self.lookup(data)
+        if node is not None:
+            children_count = node.children_count()
+  def print_tree(self):
+        
+ # Print tree content inorder
 
+        if self.left:
+            self.left.print_tree()
+        print self.data,
+        if self.right:
+            self.right.print_tree()
 
-      def postorder(self,node):
-            
-           if node is not None:
-              
-              self.postorder(node.left)
-              self.postorder(node.right)
-              print node.info
-
-                        
-tree = searchtree()     
-arr = [8,3,1,6,4,7,10,14,13]
-for i in arr:
-    tree.create(i)
-print 'Breadth-First Traversal'
-tree.bft()
-print 'Inorder Traversal'
-tree.inorder(tree.root) 
-print 'Preorder Traversal'
-tree.preorder(tree.root) 
-print 'Postorder Traversal'
-tree.postorder(tree.root) 
