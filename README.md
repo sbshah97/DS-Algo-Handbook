@@ -1,4 +1,4 @@
-# DA_A_DS
+﻿# DA_A_DS
 ## Design and Analysis of Algorithms and Data Structures
 
 This repository is created to put together all the algorithms and data structures learnt and can serve as a helpful guide for ACM-ICPC handbook.
@@ -14,10 +14,22 @@ In case you are interested in using the contents of the repository, follow the f
 ## Categories
 
 - Algorithms
-Primarily they are composed of two types of algorithms. Search, Sort and Graph Algorithms.
+The repository has 5 types of Algorithms
+	- Search Algorithms  
+	- Sorting Algorithms
+	- Graph Algorithms
+	- String Algorithms
+	- Selection Algorithms
 
 - Data Structures
-Primarily the data structures used are Stacks, Queues, Arrays, Linked list, AVL Trees and Binary trees.
+The repository contains the following Data Structures:
+	- Linked List (Singly, Doubly, Circular)
+	- Disjoint Sets
+	- Hashing
+	- Queues
+	- Stacks
+	- Trees (Binary Search, Binary, AVL)
+	- Tries
 
 ##Contributing
 - Refer to the [Contributing Guide](https://github.com/salman-bhai/DA_A_DS/blob/master/CONTRIBUTING.md)
