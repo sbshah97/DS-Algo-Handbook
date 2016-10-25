@@ -14,4 +14,7 @@ Implementation Algorithm:
 
     Rule 3 − Repeat Rule 1 and Rule 2 until the stack is empty.
 
+As C does not have any unvisited adjacent node so we keep popping the stack until we find a node that has an unvisited adjacent node. In this case, there's none and we keep popping until the stack is empty.
+
+
 Formally, Depth-first search (DFS) is an algorithm for traversing or searching tree or graph data structures. One starts at the root (selecting some arbitrary node as the root in the case of a graph) and explores as far as possible along each branch before backtracking.
