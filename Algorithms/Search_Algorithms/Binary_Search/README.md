@@ -1,11 +1,22 @@
 ---------------------------------------------------
-Binary Search :
+Breadth First Traversal/Search (BFS) for a Graph:
 ---------------------------------------------------
+
 
 Definition:
 
-Binary search is a fast search algorithm with run-time complexity of Ο(log n). This search algorithm works on the principle of divide and conquer. For this algorithm to work properly, the data collection should be in the sorted form.
+Breadth First Search (BFS) algorithm traverses a graph in a breadthward motion and uses a queue to remember to get the next vertex to start a search, when a dead end occurs in any iteration.
 
-Binary search looks for a particular item by comparing the middle most item of the collection. If a match occurs, then the index of item is returned. If the middle item is greater than the item, then the item is searched in the sub-array to the right of the middle item. Otherwise, the item is searched for in the sub-array to the left of the middle item. This process continues on the sub-array as well until the size of the subarray reduces to zero.
+Implementation Algorithm:
 
-For a binary search to work, it is mandatory for the target array to be sorted. 
+    Rule 1 − Visit the adjacent unvisited vertex. Mark it as visited. Display it. Insert it in a queue.
+
+    Rule 2 − If no adjacent vertex is found, remove the first vertex from the queue.
+
+    Rule 3 − Repeat Rule 1 and Rule 2 until the queue is empty.
+
+When the queue gets empty, the program is over.
+The displayed order of vertices is the BFS traversal of the given graph.
+
+
+Formally, Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a 'search key') and explores the neighbor nodes first, before moving to the next level neighbors.		
