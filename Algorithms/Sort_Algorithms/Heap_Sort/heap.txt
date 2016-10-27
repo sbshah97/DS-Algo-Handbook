@@ -1,0 +1,57 @@
+(define macro
+  troca (left right)
+  "Swap left and right values."
+  `(let
+    ((tmp))
+    (setf tmp ,right)
+    (setf ,right ,left)
+    (setf ,left tmp)))
+
+(define
+    sift-down (a start end)
+  "Sifts the elements down the heap."
+  (let ((root start)
+        (child)
+        (swap))
+    (loop
+      (if (<= (+ (* root 2) 1) end)
+          (progn
+           (setf child (+ (* root 2) 1))
+           (setf swap root)
+           (if (< (nth swap a) (nth child a))
+               (setf swap child))
+           (if (and (< child end) (< (nth swap a) (nth (+ child 1) a)))
+               (setf swap (+ child 1)))
+           (if (not (eql swap root))
+               (progn
+                (troca (nth root a) (nth swap a))
+                (setf root swap))
+             (return-from sift-down)))
+        (return)))))
+
+(define
+    heapify (a)
+  "Makes the input list a heap by repeatedly sifting down."
+  (let*
+      ( (cnt (length a))
+       (start (- (ceiling (/ cnt 2)) 1)))
+    (loop
+      (if (>= start 0)
+          (progn
+           (sift-down a start (- cnt 1))
+           (decf start))
+        (return)))))
+(define
+    heapsort (lista)
+  "Iterative heapsort. The argument lista is a list. Example usage: (heapsort '(1 3 4 2 9 2 5 3))"
+  (let*
+      ( (cnt (length lista))
+       (end (- cnt 1)))
+    (heapify lista)
+    (loop
+      (if (> end 0)
+          (progn
+           (troca (nth end lista) (nth 0 lista))
+           (sift-down lista 0 (- end 1))
+           (decf end))
+        (return)))) lista)
