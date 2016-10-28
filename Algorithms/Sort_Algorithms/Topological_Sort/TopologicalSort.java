@@ -14,7 +14,7 @@ public class Main
 
 
 
-	public TopologicalSort() 
+	public   Main() 
 
 	{
 
@@ -108,7 +108,7 @@ public class Main
 
 
 
-	public static void main(String...arg)
+	public static void main(String[] args)
 
 	{
 
@@ -150,7 +150,7 @@ public class Main
 
 			System.out.println("The Topological sort for the graph is given by ");
 
-			TopologicalSort toposort = new TopologicalSort();
+			Main toposort = new Main();
 
 			topological_sort = toposort.topological(adjacency_matrix, source);
 
