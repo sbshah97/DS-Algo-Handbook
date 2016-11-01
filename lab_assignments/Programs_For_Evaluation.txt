@@ -1,0 +1,17 @@
+1. QuickSort
+2. DFS
+3. BFS
+4. Prims
+5. Kruskals
+6. HeapSort
+7. Insertion Sort
+8. Shell Sort
+9. Queue using array
+10. Circular Queue using array
+11. Tower of Hanoi using recursion
+12. Evaluate postfix using stack
+13. Convert infix to postfix using stack
+14. Implement stack using array
+15. Implement queue using array
+16. Implement stack using Linked List
+17. Implement queue using Linked List
