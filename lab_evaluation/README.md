@@ -12,7 +12,7 @@
 [ ] Shell Sort
 [ ] Queue using array
 [ ] Circular Queue using array
-[ ] Tower of Hanoi using recursion
+[x] Tower of Hanoi using recursion
 [ ] Evaluate postfix using stack
 [ ] Convert infix to postfix using stack
 [ ] Implement stack using array
