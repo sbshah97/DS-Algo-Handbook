@@ -1,7 +1,12 @@
-#include<stdio.h>
+//Include Standard Header files
+#include <stdio.h>
+#include <stdlib.h>
 
-int a[20][20],q[20],visited[20],n,i,j,f=0,r=-1;
+//Variable declaration
+int a[20][20],q[20],visited[20];
+int n,i,j,f=0,r=-1;
 
+//BFS Function
 void bfs(int v) {
   
   for(i=1;i<=n;i++)
@@ -14,19 +19,22 @@ void bfs(int v) {
     }
 }
 
+//Main Function
 void main() {
   int v;
 
   printf("\n Enter the number of vertices:");
   scanf("%d",&n);
  
+  //Mark all as unvisited 
   for(i=1;i<=n;i++) {
     q[i]=0;
     visited[i]=0;
   }
  
   printf("\n Enter graph data in matrix form:\n");
- 
+  
+  //Input Graph data in Adjacency Matrix form
   for(i=1;i<=n;i++)
     for(j=1;j<=n;j++)
       scanf("%d",&a[i][j]);

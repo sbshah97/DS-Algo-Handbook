@@ -1,4 +1,8 @@
+//Include header files
 #include <stdio.h>
+#include <stdlib.h>
+
+//Global variable declaration
 int ar[100];
 int b[100];
 int sz;
@@ -11,8 +15,8 @@ int sz;
     and repeat the same for it's child.
 */
 
-void heapify(int n, int i)
-{
+//Heapify the given array 
+void heapify(int n, int i) {
     int largest = i;  // Initialize largest as root
     int l = 2*i + 1;  // left = 2*i + 1
     int r = 2*i + 2;  // right = 2*i + 2
@@ -21,8 +25,7 @@ void heapify(int n, int i)
         largest = l;
     if (r < n && ar[r] > ar[largest])
         largest = r;
-    if (largest != i)
-    {
+    if (largest != i) {
         temp=ar[i];
         ar[i]=ar[largest];
         ar[largest]=temp;
@@ -36,13 +39,12 @@ void heapify(int n, int i)
     in the array ar[] and repeat heapify.
 */
 
-void heapSort()
-{
+// Allow Heap-Sort Algorithm
+void heapSort() {
     int temp;
     for (int i = sz / 2 - 1; i >= 0; i--)
         heapify(sz, i);
-    for (int i=sz-1; i>=0; i--)
-    {
+    for (int i=sz-1; i>=0; i--) {
         temp=ar[0];
         ar[0]=ar[i];
         ar[i]=temp;
@@ -50,22 +52,19 @@ void heapSort()
     }
 }
 
-
+//Main function
 int main() {
+    //Variable Input
     int i;
     printf("Please enter the number of elements that you will be entering into the array that you want to sort:\n");
     scanf("%d", &sz);
     printf("Enter the elements into the array:\n");
     for ( i = 0; i < sz; i++)
         scanf("%d", &ar[i]);
-    
-    
-    printf("List before sorting\n");
-    for(i = 0; i < sz; i++)
-       printf("%d ", ar[i]);
-
+    //Heap Sort Algorithm
     heapSort();
 
+    //Sorted List
     printf("\nList after sorting\n");
     for(i = 0; i < sz; i++)
        printf("%d ", ar[i]);

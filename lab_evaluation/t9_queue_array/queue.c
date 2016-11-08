@@ -1,10 +1,13 @@
+//Include Header files
 #include <stdio.h>
 #include <stdlib.h>
 
+//Global Variable Declaration
 int rear=-1;
 int front=-1;
 int queue_array[50];
 
+//Queueing operation 
 void insert(int n) {
 	int add_item;
 	
@@ -21,6 +24,7 @@ void insert(int n) {
 	}
 }
 
+//Dequeue Operation
 void del(int n) {
 	if(front==-1||front>rear) {
 		printf("Queue underflow\n");
@@ -33,6 +37,7 @@ void del(int n) {
 	}
 }
 
+//Display the Queue
 void display(int n) {
 	int i;
 	if(front==-1)
@@ -46,19 +51,24 @@ void display(int n) {
 	}
 }
 
-void main() {
+//Main function
+int main() {
+	//Variable Declaration
  	int o;
  	char ans;
  	int n,ch;
+ 	
+ 	//Input data
  	printf("Enter the no of elements in queue: ");
  	scanf("%d",&n);
+ 	
  	if(n>50) {
   		printf("Enter less than 50.\n");
   		exit(0);
  	}
 
  	do {
- 		printf("\n\t\tMENU\n");
+ 		printf("\n\t\tMenu\n");
  		printf("1. INSERT Element into Queue\n2. DELETE Element from Queue\n3. DISPLAY Elements of Queue\n4. Quit\n");
  		printf("Enter your choice: ");
  		scanf("%d",&ch);
@@ -82,6 +92,7 @@ void main() {
  	printf("To continue press y...");
  	scanf("%d",&o);
  	scanf("%c",&ans);
- 	}while(ans=='y');
+ 	} while(ans=='y');
+ 	return 0;
 }
 

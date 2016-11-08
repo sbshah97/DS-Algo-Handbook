@@ -8,7 +8,7 @@ int G[20][20], visited[10], n;
 int main() {
     
     //Variable declaration
-    int i,j;
+    int i,j,x;
     printf("Enter number of vertices\n >");
     scanf("%d",&n);
 
@@ -22,14 +22,16 @@ int main() {
     for(i = 0; i < n; i ++)
         visited[i] = 0;
 
-    dfs(0);
+    printf("Enter the starting vertex\n");
+    scanf("%d",&x);
+    dfs(x);
 
     return 0;
 }
 
 void dfs(int i) {
     
-    //Variabvle declaration
+    //Variable declaration
     int j;
     printf("%d ",i);
 

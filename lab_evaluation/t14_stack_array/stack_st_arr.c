@@ -1,80 +1,94 @@
+//Include header files
 #include <stdio.h>
 #include <stdlib.h>
+ 
+#define size 50
 
-int top = -1;
-int n = 100;
-int arr[100];
+//Define Stack Structure
+struct stack {
+   int s[size];
+   int top;
+} st;
 
-void push(int x) {
-	if(overflow())
-		return;
-	else {
-		top+=1;
-		arr[top]=x;
-		printf("%d",arr[top]);
-	}
+//Full Stack condition 
+int stfull() {
+   if (st.top >= size - 1)
+      return 1;
+   else
+      return 0;
 }
 
+//Push function
+void push(int item) {
+   st.top++;
+   st.s[st.top] = item;
+}
+ 
+//Empty stack condition
+int stempty() {
+   if (st.top == -1)
+      return 1;
+   else
+      return 0;
+}
+ 
+//Pop element from stack
 int pop() {
-	if(underflow()) 
-		return;
-	
-	else {
-		top--;
-		return arr[top-1];
-	}
+   int item;
+   item = st.s[st.top];
+   st.top--;
+   return (item);
 }
-
-int underflow() {
-	if(top==-1) {
-		printf("Underflow has occurred\n");
-		return 0;
-	}
+ 
+//Display elements of stack
+void display() {
+   int i;
+   if (stempty())
+      printf("\nStack Is Empty!");
+   else {
+      for (i = st.top; i >= 0; i--)
+         printf("\n%d", st.s[i]);
+   }
 }
-
-int overflow(){
-	if(top == n) {
-		printf("Overflow has occurred\n");
-		return 0;
-	}
-}
-
-void printStack() {
-	int i;
-	printf("The elements of the array are:\n");
-	for(i = top; i > -1; i --) {
-		printf("%d\n");
-	}
-}
-
+ 
+//Mian function
 int main() {
-	int x,i;
-
-	while(1) {
-
-		printf("Welcome to the Stack Data Structure\n");
-		printf("Enter 1 to Push\n");
-		printf("Enter 2 to Pop\n");
-		printf("Enter 3 to Exit\n");
-
-		scanf("%d",&x);
-		switch(x) {
-			case 1:
-				printf("Enter the number to push\n");
-				scanf("%d",&i);
-				push(i);
-				break;
-			case 2:
-				i = pop();
-				printf("%d is popped\n",i);
-				break;
-			case 3:
-				printStack();
-				break;
-			case 4:
-				exit(-1);
-		}
-	}
-
-	return 0;
+   //Variable declaration
+   int item, choice;
+   char ans;
+   st.top = -1;
+ 
+   printf("\n\tImplementation Of Stack");
+   do {
+      printf("\nMain Menu");
+      printf("\n1.Push \n2.Pop \n3.Display \n4.exit");
+      printf("\nEnter Your Choice");
+      scanf("%d", &choice);
+      switch (choice) {
+      case 1:
+         printf("\nEnter The item to be pushed");
+         scanf("%d", &item);
+         if (stfull())
+            printf("\nStack is Full!");
+         else
+            push(item);
+         break;
+      case 2:
+         if (stempty())
+            printf("\nEmpty stack!Underflow !!");
+         else {
+            item = pop();
+            printf("\nThe popped element is %d", item);
+         }
+         break;
+      case 3:
+         display();
+         break;
+      case 4:
+         exit(0);
+      }
+      printf("\nDo You want To Continue?");
+   }while (1);
+ 
+return 0;
 }

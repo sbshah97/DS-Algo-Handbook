@@ -62,7 +62,8 @@ void Insert(int info) {
         } 
         
         else  
-            rear->link=temp; rear = temp; 
+            rear->link=temp; 
+            rear = temp; 
 
         printf(" Node has been inserted at End Successfully !!");
     }

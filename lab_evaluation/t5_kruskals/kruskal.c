@@ -1,74 +1,59 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
-long long int edg[500001][3],ou[100001];
-int fun(const void *a,const void *b) 
-{
-        return *(int*)a-*(int*)b;
-}
-long long int findroot(long long int nfs[],long long int a)
-{
-	long long int t;
-	if(nfs[a]<0)
-	{
-		return a;
-	}
-	else
-	{
-		t=findroot(nfs,nfs[a]);
-		nfs[a]=t;
-		return t;
-	}
-}
-void disunion(long long int nfs[],long long int r1,long long int r2)
-{
-	if(fabs(nfs[r1])>fabs(nfs[r2]))
-	{
-		nfs[r2]=nfs[r1]+nfs[r2];
-		nfs[r1]=r2;		
-	}
-	else
-	{
-		nfs[r1]=nfs[r1]+nfs[r2];
-		nfs[r2]=r1;
-	}	
-}
-int main()
-{
-		long long int n,m,u,v,k,w,sum=0,nfs[100001],r1,r2,total=0;
-		printf("Number of vertices and edges: ");
-		scanf("%lld%lld",&n,&m);
-		printf("Endpoints u v & weight w for M edges\n");
-		for(k=0;k<m;k++)
-		{
-			printf("u v w: ");
-			scanf("%lld%lld%lld",&u,&v,&w);
-			edg[k][0]=w;
-			edg[k][1]=u;
-			edg[k][2]=v;
-			total+=w;
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int i,j,k,a,b,u,v,n,ne=1;
+int min,mincost=0,cost[9][9],parent[9];
+int find(int);
+int uni(int,int);
+
+int main() {
+	printf("\n\n\tImplementation of Kruskal's algorithm\n\n");
+	printf("\nEnter the no. of vertices\n");
+	scanf("%d",&n);
+	printf("\nEnter the cost adjacency matrix\n");
+	for(i=1;i<=n;i++) {
+		for(j=1;j<=n;j++) {
+			scanf("%d",&cost[i][j]);
+			if(cost[i][j]==0)
+				cost[i][j]=999;
 		}
-	qsort(edg,m,3*sizeof(edg[0][0]),fun);
-	//printf("**%lld%lld**",edg[0][2],edg[1][2]);
-	//Nifty Storage Truck	
-		for(k=1;k<=n;k++)
-			nfs[k]=-1;
-		printf("Edges in MST\n");
-		for(k=0;k<m;k++)
-		{
-			r1=findroot(nfs,edg[k][1]);
-			r2=findroot(nfs,edg[k][2]);
-			if(r1==r2)
-			{
-				continue;
+	}
+	printf("\nThe edges of Minimum Cost Spanning Tree are\n\n");
+	while(ne < n) {
+		for(i = 1,min = 999; i <= n; i ++) {
+			for(j = 1; j <= n; j ++) {
+				if(cost[i][j] < min){
+					min = cost[i][j];
+					a = u = i;
+					b = v = j;
+				}
 			}
-			else
-			{
-				printf("%lld %lld\n",edg[k][1],edg[k][2]);
-				sum+=edg[k][0];
-				disunion(nfs,r1,r2);
-			}			
-		}
-		printf("Weight of MST: %lld\n",sum);	
+	}
+	u = find(u);
+	v = find(v);
+	if(uni(u,v)) {
+		printf("\n%d edge (%d,%d) =%d\n",ne++,a,b,min);
+		mincost += min;
+	}
+	
+	cost[a][b] = cost[b][a] = 999;
+	}
+
+	printf("\n\tMinimum cost = %d\n",mincost);
+	return 0;
+}
+
+int find(int i) {
+ 	while(parent[i])
+  		i = parent[i];
+ 		return i;
+}
+
+int uni(int i,int j) {
+ 	if(i != j) {
+  		parent[j] = i;
+  		return 1;
+ 	}
 	return 0;
 }

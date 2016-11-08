@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 //Function to swap variables 
 void swap(int *a, int *b) {
