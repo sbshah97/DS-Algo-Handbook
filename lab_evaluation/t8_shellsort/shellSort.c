@@ -41,21 +41,21 @@ void shellSort()
   int main() {
    int i;
    int gap;
-   printf("please enter th enumber of elements that you eill be entering into the array that you will provide to be msorted:\n");
+   printf("Enter the number of elements into the array:\n");
    scanf("%d",&sz);
-   printf("enter the elements into the array in an orderly fashion:\n");
+   printf("Enter the elements into the array\n");
    for ( i = 0; i < sz; i++)
    {
      scanf("%d",&ar[i]);
    }
-   printf("List before isorting\n");
+   printf("List before sorting\n");
 
    for(i = 0; i < sz; i++)
       printf("%d ", ar[i]);
 
     shellSort();
 
-    printf("\nList after isorting\n");
+    printf("\nList after sorting\n");
 
    for(i = 0; i < sz; i++)
       printf("%d ", ar[i]);

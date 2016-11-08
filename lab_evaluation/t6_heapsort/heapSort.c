@@ -1,5 +1,5 @@
 #include <stdio.h>
-int ar[100];// = { 10, 14, 19, 26, 27, 31, 33, 35, 42, 44 };
+int ar[100];
 int b[100];
 int sz;
 
