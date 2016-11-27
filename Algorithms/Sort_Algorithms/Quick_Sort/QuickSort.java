@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quicksort;
 
 import java.util.ArrayList;
@@ -15,13 +10,11 @@ import java.util.Random;
  * Choose a random element of the list and divide the list whether each element
  * is smaller or larger than the pivot. Sort each sublist and add them together
  * in the right order
- * @author Maarten Terpstra
  */
 public class QuickSort {
     static Random r = new Random();
 
-    public static List<Integer> QuickSort(List<Integer> comps)
-    {
+    public static List<Integer> QuickSort(List<Integer> comps) {
         // The trivial list is already sorted
         if(comps.size() <= 1)
             return comps;
@@ -33,8 +26,7 @@ public class QuickSort {
         List<Integer> pivots       = new ArrayList<>();
         List<Integer> greater_than = new ArrayList<>();
         
-        for(int elem : comps)
-        {
+        for(int elem : comps) {
             if (elem == pivot)
                 pivots.add(elem);
             else if(elem < pivot)
@@ -53,9 +45,6 @@ public class QuickSort {
         return less_than;
     }
     
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // Initialize a list
         List<Integer> list = Arrays.asList(1,23, 4, 348, 54,2367,5, 21,3, 23);
