@@ -63,7 +63,7 @@ void main() {
 
     printf("Enter edges:");  
     for(i=0; i<n1; i++) {
-        scanf("%d%d",&a,&b);  
+        scanf("%d %d",&a,&b);  
         struct node* p=(struct node*)malloc(sizeof(struct node));  
         p->data=b-1;  
         p->next=NULL;  
@@ -77,7 +77,6 @@ void main() {
         }
     }
     
-
     printf("DFS traversal:\n");  
     for(i=0; i<n; i++) {
         if(v[i]==0)
