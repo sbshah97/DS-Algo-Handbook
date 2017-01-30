@@ -84,7 +84,9 @@ void main() {
         dfs(i);  
     }
     
-    printf("Edges:\n");  
+    printf("\n");
+
+    printf("Tree edges:\n");  
     for(i=0; i<k; i+=2)
         printf("%d-%d\n",edge[i],edge[i+1]);  
 
