@@ -16,7 +16,7 @@ int maxCrossingSum(int low, int mid, int high) {
 	//Calculate left sum of the array
 	int sum = 0;
 	int left_sum = INT_MIN;
-	for(int i = low; i <= mid-1; i ++) {
+	for(int i = mid; i >=low; i --) {
 		sum += arr[i];
 		if(sum > left_sum)
 			left_sum = sum;
@@ -25,7 +25,7 @@ int maxCrossingSum(int low, int mid, int high) {
 	//Calculate right sum of the number
 	sum = 0;
 	int right_sum = INT_MIN;
-	for(int i = mid; i <= high; i++) {
+	for(int i = mid+1; i <= high; i++) {
 		sum += arr[i];
 		if(sum > right_sum)
 			right_sum = sum;
@@ -42,7 +42,7 @@ int maxSubArray(int low, int high) {
 
 	int mid = (low+high) / 2;
 
-	return(max(maxSubArray(low,mid-1), maxSubArray(mid,high), maxCrossingSum(low,mid,high)));
+	return (max(maxSubArray(low,mid), maxSubArray(mid+1,high), maxCrossingSum(low,mid,high)));
 }
 
 
@@ -54,6 +54,8 @@ int main() {
 		scanf("%d",&arr[i]);
 
 	int max = maxSubArray(0, n -1);
+
+	printf("%d",max);
 
 	return 0;
 }
