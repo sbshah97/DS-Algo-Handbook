@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <time.h>
 
 int inv(int arr[], int n) {
 	int count = 0;
@@ -9,7 +10,6 @@ int inv(int arr[], int n) {
 				count++;
 		}
 	}
-
 	return count;
 }
 
@@ -22,9 +22,16 @@ int main() {
 		scanf("%d",&arr[i]);
 	}
 
+	clock_t begin = clock();
+
 	int count = inv(arr, n);
 
-	printf("%d\n",count);
+	clock_t end = clock();
+	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	//printf("%d\n",count);
+
+	printf("The time spent for sorting is %f seconds.\n",time_spent);
 
 	return 0;
 }
