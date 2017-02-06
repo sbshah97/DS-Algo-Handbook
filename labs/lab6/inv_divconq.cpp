@@ -1,73 +1,63 @@
 #include <bits/stdc++.h>
 
-int merge(int arr[], int first, int mid, int last) {
-	int len, i,j,k,*c, count = 0;
-	len = last - first + 1;
+int s;
 
-	c = (int *)malloc(sizeof(int)*len);
-	i = 0;
-	j = first;
-	k = mid;
+void merge(int a[],int l,int u,int m) {	
+	int i,j;
+	int n1,n2;
+	n1=m-l+1;
+	n2=u-m;
+	int left[n1],right[n2];
+	for(i=0;i<n1;i++)
+		left[i]=a[l+i];
+	for(i=0;i<n2;i++)
+		right[i]=a[m+1+i];
 
-	while(j <= mid-1 && k <= last) {
-		if(arr[j] <= arr[k]) {
-			c[i++] = arr[j++];
+	int k=l;
+	i=0;
+	j=0;
+	while(i<n1 && j<n2) {
+		if(left[i]<=right[j])
+			a[k++]=left[i++];
+		else {	
+			a[k++]=right[j++];
+			s+=n1-i;
 		}
-		else {
-			c[i++] = arr[k++];
-			count += mid - j;
-		}
+	}
+	if(i<n1) {	
+		while(i<n1)
+			a[k++]=left[i++];
+	}
+	else if(j<n2) {	
+		while(j<n2)
+			a[k++]=right[j++];
 	}
 
-	while(j <= mid-1) {
-		c[i++]=arr[j++];
-	}
-
-	while(k <= last) {
-		c[i++] = arr[k++];
-	}
-	i = 0;
-
-	// while(first <= last) {
-	// 	arr[last++] = c[i++];
-	// }
-
-	for(int x = first; x <= last; x ++) {
-		arr[x] = c[x];
-	}
-
-	return count;
 }
 
-int mergesort(int arr[], int first, int last) {
-	int mid = (first + last) / 2;
-	int count = 0;
-
-	if(first < last) {
-		count += mergesort(arr, first, mid);
-		count += mergesort(arr, mid+1, last);
-		count += merge(arr, 0, mid+1, last);
+void sort(int a[],int l,int u) {	
+	if(l<u) {	
+		int m=(l+u)/2;
+		sort(a,l,m);
+		sort(a,m+1,u);
+		merge(a,l,u,m);
 	}
 
-	return count; 
 }
 
-int inv(int arr[], int n) {
-
-	return mergesort(arr, 0, n);
-}
-
-int main() {
-	int n;
+main() {	
+	int a[100],n,i,m;
+	printf("Enter value of n\n->");
 	scanf("%d",&n);
+	printf("Enter array\n->");
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
 
-	int arr[n];
-	for(int i = 0; i < n; i ++)
-		scanf("%d",&arr[i]);
-
-	int count = inv(arr, n-1);
-
-	printf("%d\n",count);
-
-	return 0;
+	sort(a,0,n-1);
+	// printf("Sorted array: ");
+	// for(i=0;i<n;i++)
+	// 	printf("%d ",a[i]);
+	
+	printf("\nNumber of inversions\n->");
+	printf("%d\n",s);
 }
