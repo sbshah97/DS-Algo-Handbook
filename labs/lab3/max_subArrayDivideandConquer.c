@@ -45,7 +45,6 @@ int maxSubArray(int low, int high) {
 	return (max(maxSubArray(low,mid), maxSubArray(mid+1,high), maxCrossingSum(low,mid,high)));
 }
 
-
 int main() {
 	int n;
 	scanf("%d",&n);
@@ -53,9 +52,9 @@ int main() {
 	for(int i = 0; i < n; i ++) 
 		scanf("%d",&arr[i]);
 
-	int max = maxSubArray(0, n -1);
+	int max = maxSubArray(0, n-1);
 
 	printf("%d",max);
 
 	return 0;
-}
+}	
