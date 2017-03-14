@@ -23,9 +23,11 @@ int main() {
 		sort(arr, arr+n);
 
 		for(int j = n-1; j >= 0; j --) {
+			
 			int val_temp = val;
 			int count_temp = 0;
 			int i = j;
+			
 			while(i >= 0) {
 				if(val_temp >= arr[i]) {
 					val_temp -= arr[i];
@@ -35,6 +37,7 @@ int main() {
 					i --;
 				}
 			}
+			
 			if(count_temp < count)
 				count = count_temp;
 		}

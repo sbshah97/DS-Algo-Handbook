@@ -20,7 +20,6 @@ int main() {
 			scanf("%d %d",&job[i].deadline,&job[i].profit);
 		}
 
-		sort(job->deadline, job->deadline + n);
 	}
 
 	return 0;
