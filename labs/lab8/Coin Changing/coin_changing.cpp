@@ -3,19 +3,22 @@
 using namespace std;
 
 int main() {
+	
 	int t;
 	scanf("%d",&t);
+	
 	while(t--) {
-		//No of deno.
+	
+		//No of denominations
 		int n;
 		scanf("%d",&n);
 
-		//tYPES OF DENO.
+		//Types of Denominations
 		int arr[n];
 		for(int i = 0; i < n; i ++)
 			scanf("%d ",&arr[i]);
 
-		//vAL -> Value of total
+		//val -> Value of total
 		int val,count=INT_MAX;
 		scanf("%d",&val);
 
