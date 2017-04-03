@@ -1,4 +1,5 @@
-# Contributing to Design and Analysis of Algorithms and Data Structure (DA_A_DS)
+# Contributing to DS-Algo Handbook
+
 
 
 Please take a moment to review this document in order to make the contribution
