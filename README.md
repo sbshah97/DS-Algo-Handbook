@@ -20,6 +20,7 @@ The repository has 5 types of Algorithms
 	- Graph Algorithms
 	- String Algorithms
 	- Selection Algorithms
+	- Dynamic Programming Algorithms
 
 - Data Structures
 The repository contains the following Data Structures:
