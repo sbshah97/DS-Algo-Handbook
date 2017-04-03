@@ -1,17 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printList(vector<list <pair <int, int> > > adjList) {
-
-}
-
 void PrintNegCycle(vector< pair<int, int> > shortestDistances, int vertex, int startVertex) {
     if (vertex == startVertex) {
         printf("%d ", vertex);
-    } else if (shortestDistances[vertex].second == 0) {
+    } 
+    else if (shortestDistances[vertex].second == 0) {
         PrintNegCycle(shortestDistances, startVertex, startVertex);
         printf("%d ", vertex);
-    } else {
+    } 
+    else {
         PrintNegCycle(shortestDistances, shortestDistances[vertex].second, startVertex);
         printf("%d ", vertex);
     }
@@ -21,7 +19,6 @@ int bellmanFord(vector< list< pair<int, int> > > adjacencyList, int vertices, in
     list< pair<int, int> >::iterator traverse;
     int i, j, k;
      
-
     for (i = 0; i <= vertices; ++i) {
         shortestDistances[i].first = INT_MAX;
         shortestDistances[i].second = -1;
@@ -89,7 +86,7 @@ int main() {
 		adjList[v1].push_back(make_pair(v2, w));
 	}
 
-	printList(adjList);
+	// printList(adjList);
 
 	vector< pair <int, int> > shortestDist(v+1);
 

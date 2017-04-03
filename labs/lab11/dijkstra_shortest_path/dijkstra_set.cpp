@@ -24,7 +24,7 @@ void Graph::addEdge(int u, int v, int w) {
 	adj[v].push_back(make_pair(u, w));
 }
 
-void Graph::shortestPath(int s) {
+void Graph::shortestPath(int src) {
     set< pair<int, int> > setds;
  
     vector<int> dist(V, INF);
@@ -60,13 +60,13 @@ void Graph::shortestPath(int s) {
 }
 
 void Graph::printGraph() {
-	for(int i = 0; i < (this->V); i ++) {
-		printf("%d ->",i);
-		for(const auto& p : adj[i]) {
-			cout << p.first << " " << p.second << " ";
-		}
-		printf("\n");
-	}
+	// for(int i = 0; i < (this->V); i ++) {
+	// 	printf("%d ->",i);
+	// 	for(const auto& p : adj[i]) {
+	// 		cout << p.first << " " << p.second << " ";
+	// 	}
+	// 	printf("\n");
+	// }
 }
 
 int main() {
@@ -86,7 +86,7 @@ int main() {
 
 	g.shortestPath(0);
 
-	g.printGraph();
+//	g.printGraph();
 
 	return 0;
 }
