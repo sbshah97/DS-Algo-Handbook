@@ -9,15 +9,15 @@ int max(int a, int b, int c) {
 int maxCrossingSum(int low, int mid, int high) {
 	int sum = 0;
 	int left_sum = INT_MIN;
-	for(int i = mid; i >= low; i ++) {
-		sum += arr[i]
+	for(int i = mid; i >= low; i --) {
+		sum += arr[i];
 		if(sum > left_sum) 
 			left_sum = sum;
 	}
 
 	sum = 0;
 	int right_sum = INT_MIN;
-	for(int i = high; i > mid; i ++) {
+	for(int i = mid+1; i <= high; i ++) {
 		sum += arr[i];
 		if(sum > right_sum)
 			right_sum = sum;

@@ -5,9 +5,12 @@ int s;
 void merge(int a[],int l,int u,int m) {	
 	int i,j;
 	int n1,n2;
+
 	n1=m-l+1;
 	n2=u-m;
+
 	int left[n1],right[n2];
+
 	for(i=0; i<n1; i++)
 		left[i] = a[l+i];
 	for(i=0; i<n2; i++)
@@ -16,6 +19,7 @@ void merge(int a[],int l,int u,int m) {
 	int k = l;
 	i = 0; 
 	j=0;
+
 	while(i<n1 && j<n2) {
 		if(left[i]<=right[j])
 			a[k++]=left[i++];
@@ -24,6 +28,7 @@ void merge(int a[],int l,int u,int m) {
 			s+=n1-i;
 		}
 	}
+
 	if(i<n1) {	
 		while(i<n1)
 			a[k++]=left[i++];
