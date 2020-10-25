@@ -9,7 +9,6 @@ In case you are interested in using the contents of the repository, follow the f
 - Open up your terminal.
 - Type in the command `git clone https://github.com/salman-bhai/DA_A_DS`
 - For further details, read up the contents of the License.
- 
 
 ## Categories
 
@@ -35,6 +34,4 @@ The repository contains the following Data Structures:
 ## Contributing
 - Refer to the [Contributing Guide](https://github.com/salman-bhai/DA_A_DS/blob/master/CONTRIBUTING.md)
 - A detailed explanantion of how we came to building this software is maintained at the [Wiki](https://github.com/salman-bhai/DA_A_DS/wiki) page.
-- This repository was created by @[salman-bhai](https://github.com/salman-bhai) . 
-
-
+- This repository was created by @[salman-bhai](https://github.com/salman-bhai).
